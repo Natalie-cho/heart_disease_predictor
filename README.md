@@ -22,11 +22,11 @@ The 13 features are as follows:
 - Sex
 - Chest pain type
 - Resting blood pressure
-- Serum cholestoral
+- Serum cholesterol
 - Fasting blood sugar
 - Resting electrocardiographic
 - Maximum heart rate achieved
-- Exercise induced angina
+- Exercise-induced angina
 - Oldpeak = ST depression induced by exercise relative to rest
 - The slope of the peak exercise ST segment
 - Number of major vessels 
@@ -52,10 +52,10 @@ After pre-processing, they are encoded in the dataset as follows:
 
 To answer the predictive question posed above, we will explore using different classifiers to predict the presence of heart disease, such as Logistic Regression, K-Nearest Neighbors, Decision Tree, and Support Vector Machine. We will also use the accuracy, precision, recall, and F1 score to judge how well the models work.
 
-Before jumping into finding the best model and hyperparameters, we will be exploring the data to see if there are any missing values, outliers, and if there are any correlations between the features. We will also use bar charts, histograms, and scatter plots to look at the data and learn more about it.
+Before jumping into finding the best model and hyperparameters, we will be exploring the data to see if there are any missing values or outliers and if there are any correlations between the features. We will also use bar charts, histograms, and scatter plots to look at the data and learn more about it.
 
 ### Sharing the results
-All the reports, conclusions, and visualizations will be available from this github repository, in the form of Jupyter Notebooks, and hosted [html report](https://ubc-mds.github.io/heart_disease_predictor/index.html).
+All the reports, conclusions, and visualizations will be available from this Github repository, in the form of Jupyter Notebooks, and hosted [html report](https://ubc-mds.github.io/heart_disease_predictor/index.html).
 
 ### Project Report
 The project report is [hosted](https://ubc-mds.github.io/heart_disease_predictor/index.html), on GitHub Pages.
@@ -82,14 +82,14 @@ This repository is structured as follows:
 ## With Docker
 ![](docker.png)
 
-To reproduce the results using Docker, you will need to have Docker installed on your machine. You can find the installation instructions [here](https://docs.docker.com/get-docker/).
+To reproduce the results using Docker you will need to have Docker installed on your machine. You can find the installation instructions [here](https://docs.docker.com/get-docker/).
 
-Once you have Docker installed, and have successfully cloned this repository, you can run the following command in your terminal, from the root of this repository, to use the Docker image to reproduce the results:
+Once you have Docker installed, and have successfully cloned this repository, you can run the following command in your terminal from the root of this repository to use the Docker image to reproduce the results:
 
 ```
 docker run -it --rm -v $(pwd):/home/heart_disease_predictor  tzoght/heart_disease_predictor make -C /home/heart_disease_predictor clean all
 ```
-> **-v $(pwd):/home/heart_disease_predictor:** this command mounts the current directory (root of the repository) to the Docker container, so that the container can access the files in the current directory.
+> **-v $(pwd):/home/heart_disease_predictor:** this command mounts the current directory (root of the repository) to the Docker container so that the container can access the files in the current directory.
 > 
 > **tzoght/heart_disease_predictor**: the name of the Docker image that we have created and pushed to Docker Hub. You can find the Dockerfile [here](Dockerfile).
 
@@ -124,12 +124,12 @@ $ conda activate env_heart_disease_prediction
   - pyppeteer
 ```
 
-We have included two options for reproducing the same resuls using this repository:
+We have included two options for reproducing the same results using this repository:
 1. **Using make**
 2. **Using interactive commands**
 
-Regardless of the method you choose, the pipeline steps are the same. The only difference is that using make will run all the steps automatically, while using interactive commands will require you to run each step manually.
-Below is a depiction of the pipeline steps (renderred by Github support for [Mermaid](https://github.com/mermaid-js/mermaid)):
+Regardless of the method you choose, the pipeline steps are the same. The only difference is that using make will run all the steps automatically while using interactive commands will require you to run each step manually.
+Below is a depiction of the pipeline steps (rendered by Github support for [Mermaid](https://github.com/mermaid-js/mermaid)):
 
 ```mermaid
 stateDiagram-v2
@@ -146,8 +146,8 @@ stateDiagram-v2
     Report --> [*]
 ```
 
-## Using make
-If you have make installed, you can run the following command in your terminal to run the pipeline from the root of the repository:
+## Using Make
+If you have Make installed, you can run the following command in your terminal to run the pipeline from the root of the repository:
 ```
 $ make all
 ```
@@ -158,9 +158,9 @@ The command above will run all steps in the pipeline, and you will be able to fi
 
 
 ## Using interactive commands
-To reproduce the results, and after cloning this repository, please follow these steps below:
+To reproduce the results, and after cloning this repository, please follow the steps below:
 
-> **Important Note:** all the commands below are to be run from the src of the repository, and all of the scripts have sensible defaults that you can change by passing arguments to them. Arguments such as `--from` or `--to` are used to specify what to ingest as input and what to output as results. If you want to change the default values, you can do so by passing the argument to the script. For example, if you want to change the default value of the --from argument in the `eda.py` script, you can do.
+> **Important Note:** all the commands below are to be run from the src of the repository, and all of the scripts have sensible defaults that you can change by passing arguments to them. Arguments such as `--from` or `--to` are used to specify what to place as input and what to output as results. If you want to change the default values, you can do so by passing the argument to the script.
 
 
 **Step 1**:  Go to the `src` directory and run the following command in your terminal, to download the dataset:
@@ -177,7 +177,7 @@ $ python fetch_dataset.py
 $ python preprocess_data.py
 ```
 
-**Step 3**:  From the same `src` directory run the following command in your terminal, to run Explorarory Data Analysis on the data:
+**Step 3**:  From the same `src` directory run the following command in your terminal, to run Exploratory Data Analysis on the data:
 
 ```
 # Run the data, and save it in the results directory
@@ -190,7 +190,7 @@ $ python eda.py
 $ python model.py
 ```
 
-**To re-generate the html report**, run the following command in your terminal after changing directory to the `doc/heart_disease_prediction_report` directory:
+**To re-generate the HTML report**, run the following command in your terminal after changing the directory to the `doc/heart_disease_prediction_report` directory:
 
 ```
 $ jupyter-book build . --builder html
@@ -210,7 +210,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 
 # Continuous Testing and Integration
-As an extra step to make sure that the code is working as expected, we have included a [Github Actions](https://github.com/features/actions) to run the pipeline automatically. This will run the pipeline on every push to the repository, and will fail if any of the steps fail. This is a good way to make sure that the code is working as expected, and that the results are reproducible.
+As an extra step to make sure that the code is working as expected, we have included a [Github Actions](https://github.com/features/actions) to run the pipeline automatically. This will run the pipeline on every push to the repository and will fail if any of the steps fail. This is a good way to make sure that the code is working as expected, and that the results are reproducible.
 To check the status of the build and the logs, please click on the badge below:
 
 [![Python application](https://github.com/UBC-MDS/heart_disease_predictor/actions/workflows/test_branch.yml/badge.svg)](https://github.com/UBC-MDS/heart_disease_predictor/actions/workflows/test_branch.yml)
